@@ -1,0 +1,16 @@
+#sport-label {
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  border: 0px solid;
+}
+
+.home_search_bar_form {
+  width: 700px;
+}
+
+.home_search_bar_form, .form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
