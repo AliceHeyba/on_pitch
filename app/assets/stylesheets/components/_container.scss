@@ -1,31 +1,66 @@
 .container {
   margin-top: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
   background-color: white;
+  border-radius: 20px;
+  display: flex;
 }
 
 .card-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 10px;
 }
 
 .card {
-  height: 350px;
-  width: 24rem;
+  transition: box-shadow .3s;
+  height: 320px;
+  width: 18rem;
   margin: 20px 0px 10px 0px;
+  padding: 5px;
   list-style-type: none;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
   border: none;
+  &:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+  }
+}
+
+.card-sport {
+  font-size: smaller;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.card-body {
+  padding: 5px;
 }
 
 .card img {
-  height: 250px;
+  height: 200px;
   object-fit: cover;
   display: block;
   width: 100%;
   border-radius: 20px;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  margin: 0px 0px 0px 10px;
+  border-radius: 0px 20px 20px 0px;
+}
+
+ul {
+  padding-left: 0px;
 }
