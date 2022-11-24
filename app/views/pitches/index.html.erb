@@ -5,10 +5,15 @@
         <%= link_to pitch_path(pitch), class: "text-decoration-none text-dark" do %>
           <div class="card">
             <%= cl_image_tag pitch.photo.key, crop: :fill, class: "pitch_unique card-img-top" %>
-            <div class="card-body">
-              <li class="card-sport"><%= pitch.sport %></li>
-              <li><%= pitch.name %></li>
-              <li><%= pitch.address %></li>
+            <div class="card-body d-flex justify-content-between">
+              <div class="card-body-text">
+                <li> <strong> <%= pitch.name %> <div class="pitchname pb-2"> </strong> </div></li>
+                <li><i class="fa-solid fa-location-dot"></i> <%= pitch.address %></li>
+              </div>
+              <div class="book-and-more-info-buttons">
+                <li><%= link_to "More info", pitch_path(pitch),class:"btn btn-info text-white book-pitch-btn"%></li>
+                <li><%= link_to "Book", pitch_path(pitch), class: "btn btn-success book-pitch-btn mt-2 text-white"%></li>
+              </div>
             </div>
           </div>
         <% end %>
