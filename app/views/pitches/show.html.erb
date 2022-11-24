@@ -1,113 +1,29 @@
-
-
-<div class="main">
-  <div class="pitch-title">
-    <h2><%= @pitch.name %></h2>
-  </div>
-  <div class="reviews">
-    <p>50 Reviews</p>
-  </div>
-  <a href="http://localhost:3000/reviews"><span class="reviews">50 Reviews</span></a>
-  <%# <%=link_to "50 Reviews", review_path(review)%>
-  <div class="review-underline">
-  </div>
-  <div class="address">
-    <p><%= @pitch.address %></p>
-  </div>
-  <%# <div class="country">
-    <p>United Kingdom > England</p>
-  </div> %>
-  <a href="http://localhost:3000/countries"><span class="country">United Kingdom > England</span></a>
-  <div class="rating-percentage">
-    <p>97%</p>
-  </div>
-  <div class="thumbs-up">
-    <%= image_tag 'thumbs-up.jpg' %>
-  </div>
-  <div class="units-available">
-    <p>1 unit</p>
-  </div>
-  <div class="unit-line">
-  </div>
-  <div class="players">
-    <p>Up to 4 players</p>
-  </div>
-  <div class="activites-container">
-    <div class="activities">
-      <p>Activities</p>
+<div class="container pitch-details">
+  <div class="row unique-pitch-details d-flex justify-content-between">
+  <h2><%= @pitch.name %></h2>
+    <div class="column-pitch col-8">
+      <div class="pitch-adress-image">
+        <%= cl_image_tag @pitch.photo.key, crop: :fill, class: "pitch-unique"%>
+        <div class= "location-and-rating d-flex justify-content-between">
+          <p><i class="fa-solid fa-location-dot"></i> <%= @pitch.address%></p>
+          <p class="pitch-review"> 97% </p>
+        </div>
+      </div>
     </div>
-    <div class="sport">
-      <p><%= @pitch.sport %></p>
+    <div class="column-pitch col-4">
+      <h4>Description </h4>
+      <p>State-of-the art pitch beautifully located in the centre of London, next to LSE & King's College Universities. Recently refurbished. Book now! </p>
+      <h4>Opening Hours</h4>
+      <p>Weekdays: 10:00 - 22:00<p>
+      <p>Week-ends: & Bank Holidays: 10:00 - 23:00</p>
+      <h4>Make a booking</h4>
+        <div class="pitch-booking-form mt-3">
+        <%= simple_form_for [@pitch, @booking] do |f| %>
+          <%= f.input :start_date, as: :datetime, html5: true %>
+          <%= f.input :end_date, as: :datetime, html5: true %>
+          <%= f.submit class: "btn btn-success btn-booking-pitch text-white mt-3" %>
+        <% end %>
+        </div>
     </div>
   </div>
-  <div class="features">
-    <p>Features</p>
-  </div>
-  <div class="private">
-    <p>Private</p>
-  </div>
-  <div class="text-1">
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  </div>
-  <div class="text-2">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="availability">
-    <p>Availability</p>
-  </div>
-  <div class="dates">
-    <p>Dates</p>
-  </div>
-  <%# <label for="Name"></label>
-  <input type="text" class="date-box" name="Name" placeholder="Enter Date"> %>
-  <label for="start"></label>
-  <input type="date" class="date-box" id="start" name="trip-start"
-  value="2022-11-23" min="2022-11-23" max="2030-12-31">
-  <label for="appt"></label>
-  <input type="time" class="time-box" id="appt" name="appt" min="09:00" max="22:00" required>
-  <div class="booking-box"></div>
-  <a href="http://localhost:3000/bookings"><span class="booking">Book Pitch</span></a>
-  <div class="middle-line">
-  </div>
-  <div class="pitch"><%= cl_image_tag @pitch.photo.key, crop: :fill, class: "pitch_unique" %></div>
-    <%# <%= link_to "See all Pitches", pitches_path %>
-  <div class="host"><%= image_tag 'host-photo.jpg' %></div>
-  <div class="host-name">Hosted By Amy R.</div>
-  <div class="host-join-date">Joined in February 2017</div>
-  <div class="contact-box"></div>
-  <a href="http://localhost:3000/hosts"><span class="contact">Contact Host</span></a>
-  <div class="contact-line"></div>
-  <div class="review-thumbs-up"><%= image_tag 'thumbs-up.jpg' %></div>
-  <div class="review-percentage">
-    <p>97%</p>
-  </div>
-  <div class="ratings-reviews">31 Ratings · 50 reviews</div>
-  <div class="review-icon-1">
-    <%= image_tag 'review icon.jpg' %>
-  </div>
-  <div class="review-icon-2">
-    <%= image_tag 'review icon.jpg' %>
-  </div>
-  <div class="review-icon-3">
-    <%= image_tag 'review icon.jpg' %>
-  </div>
-  <%# <div class="green-circle-1"></div> %>
-  <div class="thumbs-up-1"><%= image_tag 'thumbs-up.jpg' %></div>
-  <div class="thumbs-up-2"><%= image_tag 'thumbs-up.jpg' %></div>
-  <div class="thumbs-up-3"><%= image_tag 'thumbs-up.jpg' %></div>
-  <div class="review-text-1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</div>
-  <div class="review-text-2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-  <div class="review-text-3">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
-  <div class="host-name-1">Lucy K.</div>
-  <div class="host-name-2">Matthew T.</div>
-  <div class="host-name-3">Caroline B.</div>
-  <div class="show-more-box"></div>
-  <a href="http://localhost:3000/reviews"><span class="show-more">Show More</span></a>
-  <div class="line-host"></div>
-  <div class="line-facilities"></div>
-  <div class="line-1"></div>
-  <div class="host-info">From the host</div>
-  <div class="host-info-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-  <div class="facility-info">Nearby facilities</div>
-  <div class="facility-info-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</div>
 </div>

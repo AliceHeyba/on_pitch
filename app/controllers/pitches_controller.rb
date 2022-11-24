@@ -16,6 +16,7 @@ class PitchesController < ApplicationController
 
   def show
     @pitch = Pitch.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
