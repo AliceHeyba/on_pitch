@@ -18,6 +18,12 @@
     <%# <a class="navbar-brand" href="#">OnPitch</a> %>
     <div class="d-flex flex-row-reverse">
         <ul class="navbar-nav" class="ms-4">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "My Bookings", root_path, class: "btn nav-link" %>
+              <%# <a class="nav-link" aria-current="page" href="#">About</a> %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "All Pitches", pitches_path, class: "btn nav-link" %>
             <%# <a class="nav-link" aria-current="page" href="#">About</a> %>
@@ -25,13 +31,15 @@
           <li class="nav-item">
             <%= link_to "Submit a venue", new_pitch_path, class: "btn nav-link" %>
           </li>
-          <li class="nav-item">
-             <%= link_to "Log in", 'users/sign_up',class: "btn nav-link" %>
-          </li>
-          <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success me-2 text-white" %>
-            <%# <a class="btn btn-success me-2 text-white" type="button" href="#"> Sign up</a> %>
-          </li>
+          <% if user_signed_in? == false %>
+            <li class="nav-item">
+              <%= link_to "Log in", 'users/sign_up',class: "btn nav-link" %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success me-2 text-white" %>
+              <%# <a class="btn btn-success me-2 text-white" type="button" href="#"> Sign up</a> %>
+            </li>
+            <% end %>
         </ul>
         <form class="d-flex position-relative" role="search">
           <input class="form-control search-input" type="search" placeholder="Start your search" aria-label="Search">
