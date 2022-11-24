@@ -9,6 +9,12 @@
   color: white;
 }
 
+.top-banner {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
 .pitch-1 {
   width: 100%;
   height: 500px;
@@ -105,6 +111,7 @@
 .middle-banner {
   display:flex;
   width: 100%;
+  height: 450px;
   .middle-banner-left {
     width:45%;
   }
@@ -113,7 +120,7 @@
   }
   img {
   width:100%;
-  height:70%;
+  height:100%;
   object-fit: cover;
   border-radius: 8px;
   }
