@@ -32,43 +32,43 @@
   </div>
 
   <div class="sports_filter">
-  <%= link_to pitches_path do  %>
-    <button class="btn"><i class="fa-solid fa-basketball fa-3x"></i> <br> Basketball</button>
+  <%= link_to pitches_path(sport: "Basketball") do  %>
+    <button class="btn" onclick="filterSelection('basketball')"><i class="fa-solid fa-basketball fa-3x"></i> <br> Basketball</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Tennis") do  %>
       <button class="btn"><i class="fa-regular fa-circle fa-3x"></i> <br> Tennis</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Football") do  %>
     <button class="btn"><i class="fa-solid fa-futbol fa-3x"></i> <br> Football</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Badminton") do  %>
     <button class="btn"><i class="fa-solid fa-feather fa-3x"></i> <br> Badminton</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Cricket") do  %>
     <button class="btn"><i class="fa-solid fa-baseball-bat-ball fa-3x"></i> <br> Cricket</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Padel") do  %>
     <button class="btn"><i class="fa-regular fa-circle fa-3x"></i> <br> Padel</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Pickleball") do  %>
     <button class="btn"><i class="fa-solid fa-wine-bottle fa-3x"></i> <br> Pickleball</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
-    <button class="btn"><i class="fa-solid fa-golf-ball-tee fa-3x"></i> <br> Golf </button>
+  <%= link_to pitches_path(sport: "Golf") do  %>
+    <button class="btn"><i class="fa-solid fa-golf-ball-tee fa-3x"></i> <br> Golf</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Tabletennis") do  %>
     <button class="btn"><i class="fa-solid fa-table-tennis-paddle-ball fa-3x"></i> <br> Tabletennis</button>
   <% end %>
 
-  <%= link_to pitches_path do  %>
+  <%= link_to pitches_path(sport: "Volleyball") do  %>
     <button class="btn"><i class="fa-solid fa-volleyball fa-3x"></i> <br> Volleyball</button>
   <% end %>
   </div>

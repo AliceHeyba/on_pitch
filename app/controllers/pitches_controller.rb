@@ -1,11 +1,15 @@
 class PitchesController < ApplicationController
   def index
-    @pitches = Pitch.all
-    @markers = @pitches.geocoded.map do |pitch|
-      {
-        lat: pitch.latitude,
-        lng: pitch.longitude
-      }
+    if params[:sport].present?
+      @pitches = Pitch.where(sport: params[:sport])
+      @markers = @pitches.geocoded.map do |pitch|
+        {
+          lat: pitch.latitude,
+          lng: pitch.longitude
+        }
+      end
+    else
+      @pitches = Pitch.all
     end
   end
 
