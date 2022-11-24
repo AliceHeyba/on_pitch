@@ -1,11 +1,35 @@
-<div class="banner-CL" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/4142901.jpg);" alt="background-image-form">
-  <div class="container-pitch-upload d-flex justify-content-start col-4 ps-4">
-    <%= simple_form_for(@pitch) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :address %>
-      <%= f.input :sport, collection: [ "Football", "Tennis", "Basketball", "Cricket", "Table Tennis", "Squash", "Badminton", "Padel", "Gofl", "Volleyball"] %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit class: "btn btn-success text-white mt-3" %>
-    <% end %>
+<%# <div class="banner-CL" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/4142901.jpg);" alt="background-image-form"> %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for(@pitch) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :sport, collection: [ "Football", "Tennis", "Basketball", "Cricket", "Table Tennis", "Squash", "Badminton", "Padel", "Gofl", "Volleyball"] %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: "btn btn-success text-white mt-3" %>
+      <% end %>
+    </div>
+
+  <div class="col">
+    <div class="container">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag "carousel_padel.jpg", class: "d-block w-100" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "carousel_squash.jpg", class: "d-block w-100" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "carousel_badminton.jpg", class: "d-block w-100" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "carousel_cricket.jpg", class: "d-block w-100" %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
