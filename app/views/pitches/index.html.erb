@@ -1,51 +1,23 @@
-<nav class="navbar navbar-expand-lg"  class="p-3 mb-2 bg-gradient-light text-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">OnPitch</a>
-    <div class="d-flex flex-row-reverse">
-        <ul class="navbar-nav" class="ms-4">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Submit a venue</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-success me-2 text-white" type="button" href="#"> Sign up</a>
-          </li>
-        </ul>
-        <form class="d-flex position-relative" role="search">
-          <input class="form-control search-input" type="search" placeholder="Start your search" aria-label="Search">
-          <button class="btn btn-outline-success search" type="submit">
-          <i class="fa-solid fa-magnifying-glass small-btn"></i>
-          </button>
-        </form>
-    </div>
-  </div>
-</nav>
-
 <div class="container">
-  <ul>
-  <div class="card-container">
-    <% @pitches.each do |pitch| %>
-    <%= link_to pitch_path(pitch), class: "text-decoration-none text-dark" do %>
-    <div class="card">
-      <%= cl_image_tag pitch.photo.key, crop: :fill, class: "pitch_unique card-img-top" %>
-      <div class="card-body">
-        <li class="card-sport"><%= pitch.sport %></li>
-        <li><%= pitch.name %></li>
-        <li><%= pitch.address %></li>
-      </div>
+  <div class="pitches-container">
+    <div class="card-container">
+      <% @pitches.each do |pitch| %>
+        <%= link_to pitch_path(pitch), class: "text-decoration-none text-dark" do %>
+          <div class="card">
+            <%= cl_image_tag pitch.photo.key, crop: :fill, class: "pitch_unique card-img-top" %>
+            <div class="card-body">
+              <li class="card-sport"><%= pitch.sport %></li>
+              <li><%= pitch.name %></li>
+              <li><%= pitch.address %></li>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <% end %>
-    <% end %>
-  </ul>
-  <div id="map"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    <div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
