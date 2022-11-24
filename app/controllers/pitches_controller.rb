@@ -5,7 +5,8 @@ class PitchesController < ApplicationController
       @markers = @pitches.geocoded.map do |pitch|
         {
           lat: pitch.latitude,
-          lng: pitch.longitude
+          lng: pitch.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {pitch: pitch})
         }
       end
     else
