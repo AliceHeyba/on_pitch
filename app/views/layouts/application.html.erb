@@ -33,12 +33,17 @@
           </li>
           <% if user_signed_in? == false %>
             <li class="nav-item">
-              <%= link_to "Log in", 'users/sign_up',class: "btn nav-link" %>
+              <%= link_to "Log in", new_user_session_path , class: "btn nav-link" %>
             </li>
             <li class="nav-item">
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success me-2 text-white" %>
               <%# <a class="btn btn-success me-2 text-white" type="button" href="#"> Sign up</a> %>
             </li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "btn nav-link" %>
+              </li>
             <% end %>
         </ul>
         <form class="d-flex position-relative" role="search">
