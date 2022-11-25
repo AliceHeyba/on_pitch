@@ -32,13 +32,13 @@
 # end
 # puts 'Finished!'
 
-Booking.destroy_all
-Pitch.destroy_all
-User.destroy_all
+# Booking.destroy_all
+# Pitch.destroy_all
+# User.destroy_all
 
-user1 = User.create!(email: "jack@gmail.com", password: "123456")
-user2 = User.create!(email: "alice@gmail.com", password: "123456")
-pitch = Pitch.create!(name: "Seed Tennis", sport: "Football", user_id: user1.id)
+# user1 = User.create!(email: "jack@gmail.com", password: "123456")
+# user2 = User.create!(email: "alice@gmail.com", password: "123456")
+# pitch = Pitch.create!(name: "Seed Tennis", sport: "Football", user_id: user1.id)
 
-Booking.create!(start_date: Date.yesterday, end_date: Date.yesterday, user: user2, pitch_id: pitch.id)
-Booking.create!(start_date: Date.tomorrow, end_date: Date.tomorrow, user: user2, pitch_id: pitch.id)
+# Booking.create!(start_date: Date.yesterday, end_date: Date.yesterday, user: user2, pitch_id: pitch.id)
+# Booking.create!(start_date: Date.tomorrow, end_date: Date.tomorrow, user: user2, pitch_id: pitch.id)
