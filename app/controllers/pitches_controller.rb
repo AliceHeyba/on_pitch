@@ -1,5 +1,6 @@
 class PitchesController < ApplicationController
   def index
+    @booking = Booking.new
     if params[:sport].present?
       @pitches = Pitch.where(sport: params[:sport])
     else

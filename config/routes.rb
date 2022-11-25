@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # resources only index
   # resources :users do
   resources :pitches do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :index]
   end
+  get 'bookings/:id/confirmation', to: "bookings#confirmation", as: :booking_confirmation
   resources :bookings, only: [:index]
 end
