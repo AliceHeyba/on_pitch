@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import "./assets/stylesheets/_container.scss"
+// import "./assets/stylesheets/_container.scss"

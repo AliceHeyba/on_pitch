@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_pitch, only: %i[new create index]
+  before_action :set_pitch, only: %i[new create]
 
   def show
     set_booking
