@@ -1,9 +1,19 @@
 // Specific CSS for your home-page
 
+.navbar {
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
+  margin-left: 236px;
+  margin-right: 236px;
+}
+
 .navbar-brand {
   font-size: 30px;
   color: #00C585;
 }
+
 .nav-item btn {
   border-radius: 5px;
   color: white;
@@ -166,6 +176,7 @@
 
 .third-banner {
   width: 100%;
+  height: 972px;
   img {
   object-fit: cover;
   width:100%;
