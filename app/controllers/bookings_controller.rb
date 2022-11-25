@@ -1,18 +1,29 @@
 class BookingsController < ApplicationController
   before_action :set_pitch, only: %i[new create index]
 
-  def new
-    @booking = Booking.new
-  end
-
-  def index
-    @bookings = Booking.where(user_id: current_user.id)
+  def show
+    set_booking
+    @booking.save
+    redirect_to booking_path(@booking)
   end
 
   def confirmation
     set_booking
   end
 
+  def index
+    @bookings = current_user.bookings
+    @past_bookings = current_user.bookings.select do |booking|
+      booking.end_date < Date.today
+    end
+    @future_bookings = current_user.bookings.select do |booking|
+      booking.end_date > Date.today
+    end
+  end
+
+  def new
+    @booking = Booking.new
+  end
 
   def create
     @booking = Booking.new(booking_params)
@@ -23,12 +34,6 @@ class BookingsController < ApplicationController
     else
       redirect_to pitch_path(@path), status: :unprocessable_entity
     end
-  end
-
-  def show
-    set_booking
-    @booking.save
-    redirect_to booking_path(@booking)
   end
 
   private

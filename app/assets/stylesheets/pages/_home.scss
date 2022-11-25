@@ -1,9 +1,19 @@
 // Specific CSS for your home-page
 
+.navbar {
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
+  margin-left: 236px;
+  margin-right: 236px;
+}
+
 .navbar-brand {
   font-size: 30px;
   color: #00C585;
 }
+
 .nav-item btn {
   border-radius: 5px;
   color: white;
@@ -59,25 +69,28 @@
 }
 
 .location {
-  border-radius: 10px;
+  border-radius: 50px;
   width: 200px;
   height: 50px;
   border: 0px solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #ced4da;
 }
 
 .sport-label {
-  border-radius: 10px;
+  border-radius: 50px;
   width: 200px;
   height: 50px;
-  border: 0px solid;
-
 }
 
 .date-label {
-  border-radius: 10px;
+  border-radius: 50px;
   width: 200px;
   height: 50px;
-  border: 0px solid;
+  border: 1px solid #ced4da;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 
@@ -91,6 +104,8 @@
   top: -520px;
   margin: 0 auto;
   display: block;
+  box-shadow: 0 0 5px rgba(33,33,33,.1);
+  border: 1px solid #ced4da;
 }
 
 
@@ -100,7 +115,7 @@
   img {
   object-fit: cover;
   // height: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   // display: block;
   margin-left: auto;
   margin-right: auto;
@@ -113,16 +128,18 @@
   width: 100%;
   height: 450px;
   .middle-banner-left {
-    width:45%;
+    width:48%;
+    border-radius: 20px;
   }
   .middle-banner-right{
-    width:45%;
+    width:48%;
+    border-radius: 20px;
   }
   img {
   width:100%;
   height:100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 20px;
   }
 }
 
@@ -134,13 +151,13 @@
   color: white;
   transform: translateY(-80px);
   align-items: center;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .book-now{
   background-color: white;
   border: 0px solid;
-  border-radius: 10px;
-  height: 30px;
+  border-radius: 20px;
   color: #D84627;
 }
 
@@ -151,29 +168,27 @@
   color: white;
   transform: translateY(-80px);
   align-items: center;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .book-now2{
   background-color: white;
   border: 0px solid;
-  border-radius: 10px;
-  height: 30px;
+  border-radius: 20px;
   color: #9A9D68;
 }
 
-
-
-
 .third-banner {
   width: 100%;
+  height: 972px;
   img {
   object-fit: cover;
   width:100%;
-  border-radius: 8px;
+  border-radius: 20px;
   }
 }
 
-.earn-money{
+.earn-money {
   background-color: #D84627;
   color: white;
   justify-content: center;
@@ -182,12 +197,16 @@
   left: 60px;
   width: 372px;
   height: 292px;
-  border-radius: 30px;
-  padding: 50px 10px;
+  border-radius: 20px;
+  padding: 30px 10px;
+}
+
+.earn-money p {
+  margin-bottom: 30px;
 }
 
 .learn-more {
-  border-radius: 10px;
+  border-radius: 20px;
   border: 0px solid;
   color: #D84627;
   background-color: white;
