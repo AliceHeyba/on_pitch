@@ -15,6 +15,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    @bookings = current_user.bookings
+    @past_bookings = current_user.bookings.select do |booking|
+      booking.end_date < Date.today
+    end
+    @future_bookings = current_user.bookings.select do |booking|
+      booking.end_date > Date.today
+    end
+  end
+
   private
 
   def set_pitch
