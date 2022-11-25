@@ -2,15 +2,15 @@ class PitchesController < ApplicationController
   def index
     if params[:sport].present?
       @pitches = Pitch.where(sport: params[:sport])
-      @markers = @pitches.geocoded.map do |pitch|
-        {
-          lat: pitch.latitude,
-          lng: pitch.longitude,
-          info_window: render_to_string(partial: "info_window", locals: {pitch: pitch})
-        }
-      end
     else
       @pitches = Pitch.all
+    end
+    @markers = @pitches.geocoded.map do |pitch|
+      {
+        lat: pitch.latitude,
+        lng: pitch.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {pitch: pitch})
+      }
     end
   end
 
