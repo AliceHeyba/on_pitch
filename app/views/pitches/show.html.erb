@@ -5,8 +5,14 @@
       <div class="pitch-adress-image">
         <%= cl_image_tag @pitch.photo.key, crop: :fill, class: "pitch-unique"%>
         <div class= "location-and-rating d-flex justify-content-between">
-          <p><i class="fa-solid fa-location-dot"></i> <%= @pitch.address%></p>
-          <p class="pitch-review"> 97% </p>
+          <p><i class="fa-solid fa-location-dot mt-2"></i> <%= @pitch.address%></p>
+          <div class="star-rating display: inline-block">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
         </div>
       </div>
     </div>

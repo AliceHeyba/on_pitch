@@ -1,0 +1,56 @@
+<div class= "p-3 bg-white">
+    <div class="d-flex justify-content-around mt-4">
+      <div class="row confirmation-page-header">
+          <p> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Back to Homepage", root_path,class:"back-to-hp-btn text-black" %> </p>
+        </div>
+        <div>
+          <h2> <strong> <%= @booking.pitch.name %></strong></h2>
+        </div>
+        <div>
+          <button type="button" class="btn cancel-request-btn text-black">Cancel booking</button>
+        </div>
+      </div>
+</div>
+
+<div class="container" >
+  <div class="row d-flex justify-content-between">
+    <div class = "col-7">
+      <div class= "booking-confirmed-text container border rounded px-2 py-2 " style="margin-top:0;">
+          <h4><i class="fa-solid fa-circle-check"></i>  Booking confirmed</h4>
+          <div class= "booking-info-landing-page d-flex justify-content-between  align-items-end">
+            <div>
+            <ul>
+              <li><p> Date: <%= @booking.start_date.strftime("%d/%m/%y")%></p></li>
+              <li><p> Time: <%= @booking.start_date.strftime("%I:%M%p")%></p></li>
+              <li><p> Address: <%= @booking.pitch.address %></p></li>
+            </ul>
+            </div>
+            <div>
+            <button type="button" class="btn reschedule "><i class="fa-regular fa-calendar-days"></i> Reschedule</button>
+            </div>
+          </div>
+      </div>
+      <div class="container border rounded px-3 py-4 my-4">
+          <div>
+            <h4><strong>All my bookings</strong></h4>
+          </div>
+          <div class ="d-flex justify-content-between show-my-bookings align-items-end">
+           <p><small>Details for all your bookings </small></p>
+           <button type="button" class="btn my-bookings "><i class="fa-solid fa-person-running"></i> Go to my bookings</button>
+           </div>
+      </div>
+      <div class="container border rounded px-3 py-4 mt-4" style="margin-bottom:0;">
+          <div>
+            <h4><strong>Need our help?</strong></h4>
+          </div>
+          <div class ="d-flex justify-content-between help-number align-items-end">
+           <p><small>Don't hesitate to call us if you face any issues</small></p>
+            <button type="button" class="btn call-us text-black"> <i class="fa-solid fa-phone"></i>  0201928392</button>
+          </div>
+      </div>
+    </div>
+    <div class ="col-5 ">
+      <%= cl_image_tag @booking.pitch.photo.key, crop: :fill, class: "pitch-booking-confirmation" %>
+    </div>
+  </div>
+</div>

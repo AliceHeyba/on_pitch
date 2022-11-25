@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="pitches-container">
-    <div class="card-container">
+  <div class="row pitches-container">
+    <div class="card-container pitches-on-map col-8">
       <% @pitches.each do |pitch| %>
         <%= link_to pitch_path(pitch), class: "text-decoration-none text-dark" do %>
           <div class="card">
@@ -11,18 +11,45 @@
                 <li><i class="fa-solid fa-location-dot"></i> <%= pitch.address %></li>
               </div>
               <div class="book-and-more-info-buttons">
-                <li><%= link_to "More info", pitch_path(pitch),class:"btn btn-info text-white book-pitch-btn"%></li>
-                <li><%= link_to "Book", pitch_path(pitch), class: "btn btn-success book-pitch-btn mt-2 text-white"%></li>
+                <li><%= link_to "More info", pitch_path(pitch),class:"btn btn-secondary info-pitch-btn text-white "%></li>
+                      <button type="button" class="btn btn-success text-white book-pitch-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Book
+                      </button>
+                <!-- The form -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Booking Form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+
+                          <%= simple_form_for [pitch, @booking] do |f| %>
+                            <%= f.input :start_date, as: :datetime, html5: true %>
+                            <%= f.input :end_date, as: :datetime, html5: true %>
+                            <%= f.submit class:"btn btn-success btn-booking-pitch text-white mt-3" %>
+                          <%end %>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
-    <div id="map"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+      <div class="col-4">
+        <div id="map"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
   </div>
 </div>
