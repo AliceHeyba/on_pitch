@@ -16,13 +16,13 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = booking.where(user_id: current_user.id)
-      @past_bookings = current_user.bookings.select do |booking|
-        booking.end_date < Date.today
-      end
-      @future_bookings = current_user.bookings.select do |booking|
-        booking.end_date > Date.today
-      end
+    @bookings = current_user.bookings
+    @past_bookings = current_user.bookings.select do |booking|
+      booking.end_date < Date.today
+    end
+    @future_bookings = current_user.bookings.select do |booking|
+      booking.end_date > Date.today
+    end
   end
 
   private

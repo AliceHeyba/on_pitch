@@ -20,7 +20,7 @@
         <ul class="navbar-nav" class="ms-4">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "My Bookings", root_path, class: "btn nav-link" %>
+              <%= link_to "My Bookings", bookings_path, class: "btn nav-link" %>
               <%# <a class="nav-link" aria-current="page" href="#">About</a> %>
             </li>
           <% end %>
