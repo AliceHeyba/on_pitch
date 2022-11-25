@@ -14,13 +14,16 @@
   <body>
   <nav class="navbar navbar-expand-lg"  class="p-3 mb-2 bg-gradient-light text-dark">
   <div class="container-fluid">
-    <%= link_to "On Pitch", root_path, class: "navbar-brand" %>
+    <%# <%= link_to image_tag("onpitch_logo.png", border: 0), root_path, class: "navbar-brand" %>
+    <%= link_to root_path do %>
+      <%= image_tag 'onpitch_logo.png', width: 139.75, height: 36.5, alt: 'a face that is unnervingly happy'%>
+    <% end %>
     <%# <a class="navbar-brand" href="#">OnPitch</a> %>
     <div class="d-flex flex-row-reverse">
         <ul class="navbar-nav" class="ms-4">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "My Bookings", root_path, class: "btn nav-link" %>
+              <%= link_to "My Bookings", bookings_path, class: "btn nav-link" %>
               <%# <a class="nav-link" aria-current="page" href="#">About</a> %>
             </li>
           <% end %>

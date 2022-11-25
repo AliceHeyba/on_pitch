@@ -5,9 +5,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  def index
-    @bookings = Booking.where(user_id: current_user.id)
-  end
+
 
   def confirmation
     set_booking
@@ -29,6 +27,16 @@ class BookingsController < ApplicationController
     set_booking
     @booking.save
     redirect_to booking_path(@booking)
+   end
+
+  def index
+    @bookings = current_user.bookings
+    @past_bookings = current_user.bookings.select do |booking|
+      booking.end_date < Date.today
+    end
+    @future_bookings = current_user.bookings.select do |booking|
+      booking.end_date > Date.today
+    end
   end
 
   private
